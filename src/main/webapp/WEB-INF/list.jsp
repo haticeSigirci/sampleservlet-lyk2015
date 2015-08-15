@@ -1,26 +1,26 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <html>
 <body>
-	
-	<h2>${todos}</h2>
-	
-<ul>
 
-	<c:forEach items="${todos}" var="todo">
-	
-		<c:if test="${todo.done}">
-			<li><strike>${todo.name}</strike></li>			
-		</c:if>
-		
-		<c:if test="${!todo.done}">
-			<li>${todo.name}</li>			
-		</c:if>
-	
-	</c:forEach>
+	<form action="list" method="post">
+		<ul>
+			<c:forEach items="${todos}" var="todo">
 
-</ul>
-	
+				<li><c:if test="${todo.done}">
+						<strike>${todo.name}</strike>
+					</c:if> <c:if test="${!todo.done}">
+					${todo.name}
+				</c:if>
+					<button type="submit" name="id" value="${todo.id}">Done</button></li>
+				<a href="update?id=${todo.id}">edit</a>
+
+			</c:forEach>
+		</ul>
+	</form>
+
+
+
 </body>
 </html>

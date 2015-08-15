@@ -16,4 +16,18 @@ public class ListServlet extends HttpServlet {
 		req.setAttribute("todos", Storage.getAll());
 		req.getRequestDispatcher("WEB-INF/list.jsp").forward(req, resp);
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		String id = req.getParameter("id");
+
+		Todo t = new Todo();
+		t = Storage.getById(Long.parseLong(id));
+
+		t.setDone(true);
+		
+		resp.sendRedirect("list");
+	}
+	
 }

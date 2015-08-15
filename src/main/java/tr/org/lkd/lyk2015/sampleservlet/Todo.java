@@ -59,6 +59,17 @@ public class Todo {
 		this.done = done;
 	}
 
+	public String getDate()
+	{
+		Date date = this.dueDate.getTime();             
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");  
+		String datetime= null;
+		datetime = format1.format(date);
+//		System.out.println(datetime);
+		
+		return datetime;
+	}
+
 	@Override
 	public String toString() {
 		return "Todo [id=" + id + ", name=" + name + ", desc=" + desc + ", dueDate=" + dueDate + ", done=" + done + "]";

@@ -20,7 +20,7 @@ public class TestServlet extends HttpServlet{
 		Todo t2 = new Todo("test todo 2", "test lorem ipsum", Calendar.getInstance());
 		
 		Todo t3 = new Todo("test todo 3", "test lorem ipsum", Calendar.getInstance());
-		t3.setDone(true);
+		
 		
 		Todo t4 = new Todo("test todo 4", "test lorem ipsum", Calendar.getInstance());
 		
